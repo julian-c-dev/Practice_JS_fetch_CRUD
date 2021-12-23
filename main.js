@@ -1,6 +1,6 @@
 // definition of variables
 
-const url = "http://localhost:3000/api/articulos/";
+const url = "http://localhost:3000/api/articles/";
 const container = document.querySelector("tbody");
 
 let results = "";
@@ -24,8 +24,8 @@ btnCreate.addEventListener("click", () => {
 });
 
 // function show the results
-const show = (article) => {
-  article.forEach((article) => {
+const show = (articles) => {
+  articles.forEach((article) => {
     results += `<tr>
                         <td>${article.id}</td>
                         <td>${article.description}</td>
@@ -40,6 +40,6 @@ const show = (article) => {
 
 // show registers
 fetch(url)
-  .then(response.json())
+  .then((response) => response.json())
   .then((data) => show(data))
   .catch((err) => console.log(err));
